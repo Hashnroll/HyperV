@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HyperVRemote", "HyperVRemote.csproj", "{46B772A9-EA73-4988-BAF9-759E1CDA3107}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{2E5603D2-7546-485D-B23E-42A195931507}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46B772A9-EA73-4988-BAF9-759E1CDA3107}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46B772A9-EA73-4988-BAF9-759E1CDA3107}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46B772A9-EA73-4988-BAF9-759E1CDA3107}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46B772A9-EA73-4988-BAF9-759E1CDA3107}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E5603D2-7546-485D-B23E-42A195931507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E5603D2-7546-485D-B23E-42A195931507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E5603D2-7546-485D-B23E-42A195931507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E5603D2-7546-485D-B23E-42A195931507}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A76BBC57-6DDC-4515-86D4-FFB13361E514}
+	EndGlobalSection
+EndGlobal

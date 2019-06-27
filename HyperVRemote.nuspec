@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>HyperVRemote</id>
+    <version>$version$</version>
+    <authors>tibbar</authors>
+    <owners>tibbar</owners>
+    <projectUrl>https://github.com/AlexsJones/HyperVRemote</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>HyperVRemote control from C# wrapping WMI. Best used with IoC. Find usage and more information available on the project home page</description>
+    <tags>hyper-v, hyperv, virtualmachine, vm, connection</tags>
+  </metadata>
+</package>
