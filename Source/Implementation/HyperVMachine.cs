@@ -30,7 +30,7 @@ namespace HyperVRemote.Source.Implementation
 		}
 
 		#endregion
-
+    
 		#region Props
 
 		public ManagementObject AsRawMachine => GetMachine();
@@ -59,9 +59,11 @@ namespace HyperVRemote.Source.Implementation
 			ChangeState( HyperVStatus.Off );
 		}
 
-        public void ListRecoverySnapshots()
+        public IEnumerable<IHyperVSnapshot> ListSnapshots()
         {
             ManagementScope scope = AsRawMachine.Scope;
+
+            List<HyperVSnapshot> snapshots = new List<HyperVSnapshot>();
 
             // Get the VM object and snapshot settings. 
             using (ManagementObject vm = Utility.GetTargetComputer(Name, scope))
@@ -78,13 +80,16 @@ namespace HyperVRemote.Source.Implementation
                         if (string.Compare(systemType, VirtualSystemTypeNames.RealizedSnapshot,
                             StringComparison.OrdinalIgnoreCase) == 0)
                         {
-                            // It is a recovery snapshot. 
+                            // It is a recovery snapshot.
                             DateTime time = ManagementDateTimeConverter.ToDateTime(setting["CreationTime"].ToString());
-                            Console.WriteLine("Name: {0}\nRecovery snapshot creation time: {1}\n", (string)setting["ElementName"], time);
+
+                            snapshots.Add(new HyperVSnapshot { Name = (string)setting["ElementName"], Time = time });
                         }
                     }
                 }
             }
+
+            return snapshots;
         }
 
         public void CreateSnapshot()

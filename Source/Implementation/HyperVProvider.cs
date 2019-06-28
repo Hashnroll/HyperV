@@ -19,7 +19,7 @@ namespace HyperVRemote.Source.Implementation
         public HyperVProvider(HyperVRemoteOptions options)
         {
             _options = options;
-
+            
             var connectionOptions = new ConnectionOptions
             {
                 Locale = @"en-US"
@@ -48,16 +48,7 @@ namespace HyperVRemote.Source.Implementation
             connectionOptions.Impersonation = ImpersonationLevel.Impersonate;
             connectionOptions.Authentication = AuthenticationLevel.Default;
 
-            //configuration.FetchPassword(),
-            //    null,
-            //    ImpersonationLevel.Impersonate, // I don't know if this is correct, but it worked for me
-            //    AuthenticationLevel.Default,
-            //    false,
-            //    null,
-            // configuration.Timeout());
-
             ConnectionOptions = connectionOptions;
-
 
             _scope = new ManagementScope(new ManagementPath
             {

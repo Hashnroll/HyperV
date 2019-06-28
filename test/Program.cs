@@ -21,8 +21,12 @@ namespace test
             foreach (HyperVMachine machine in controller.VirtualMachines)
             {
                 Console.WriteLine("Name: {0}\nStatus: {1}\n", machine.Name, machine.Status);
+                foreach (var snap in machine.ListSnapshots())
+                {
+                    Console.WriteLine("Name: {0}\nSnapshot creation time: {1}\n", snap.Name, snap.Time);
 
-                machine.CreateSnapshot();
+                }
+
             }
             Console.ReadLine();
         }

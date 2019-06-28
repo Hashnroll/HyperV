@@ -183,8 +183,6 @@ namespace HyperVRemote.Source.Implementation
             return systemDevice;
         }
 
-
-
         public static bool JobCompleted(ManagementBaseObject outParams, ManagementScope scope)
         {
             bool jobCompleted = true;

@@ -1,4 +1,5 @@
 ﻿using System.Management;
+using System.Collections.Generic;
 
 namespace HyperVRemote.Source.Interface
 {
@@ -46,7 +47,7 @@ namespace HyperVRemote.Source.Interface
 
         void ApplySnapshot(ManagementObject snapshot);
 
-        void ListRecoverySnapshots();
+        IEnumerable<IHyperVSnapshot> ListSnapshots();
 
         /// <summary>
         /// Восстановить из последнего снапшота
