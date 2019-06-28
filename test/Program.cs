@@ -13,16 +13,15 @@ namespace test
         static void Main(string[] args)
         {
             HyperVController controller = new HyperVController("DESKTOP-9H356BC",null,null);
-            Console.WriteLine(controller.Status);
-
-            controller.Connect();
-            Console.WriteLine(controller.Status);
 
             foreach (HyperVMachine machine in controller.VirtualMachines)
             {
                 Console.WriteLine("Name: {0}\nStatus: {1}\n", machine.Name, machine.Status);
-
-                machine.CreateSnapshot();
+                foreach (var snap in machine.Snapshots)
+                {
+                        controller.RemoveSnapshot(machine, snap); 
+                }
+                controller.CreateSnapshot(machine);
             }
             Console.ReadLine();
         }

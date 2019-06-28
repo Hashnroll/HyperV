@@ -25,13 +25,40 @@ namespace HyperVRemote.Source.Interface
 
     public interface IHyperVProvider
     {
-     
         void Connect();
 
         IEnumerable<IHyperVMachine> GetMachines();
 
-        IHyperVMachine GetMachineByName(string name);      
+        IHyperVMachine GetMachineByName(string name);
 
-      
+        /// <summary>
+        /// Запустить ВМ
+        /// </summary>
+        void Start(IHyperVMachine machine);
+
+
+        /// <summary>
+        /// Остановить
+        /// </summary>
+        void Stop(IHyperVMachine machine);
+
+
+        /// <summary>
+        /// Сбросить
+        /// </summary>
+        void Reset(IHyperVMachine machine);
+
+
+        /// <summary>
+        /// Сделать снепшот
+        /// </summary>
+        void CreateSnapshot(IHyperVMachine machine);
+
+        void RemoveSnapshot(IHyperVMachine machine, IHyperVSnapshot snapshot);
+
+        void ApplySnapshot(IHyperVMachine machine, IHyperVSnapshot snapshot);
+
     }
+
+   
 }

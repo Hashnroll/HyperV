@@ -30,20 +30,52 @@ namespace HyperVRemote.HyperV
 
 		public string Password { get; }
 
-        public string Status {
-            get {
+        public string Status
+        {
+            get
+            {
                 if (_provider.isConnected())
                     return "connected";
                 else
                     return "not connected";
-            } }
+            }
+        }
 
 		public IEnumerable<IHyperVMachine> VirtualMachines => _provider.GetMachines();
 
 		public IEnumerable<IHyperVMachine> ContentVirtualMachines => VirtualMachines.Where( vm => vm.Name.StartsWith( "(Content" ) );
 
+        public void Reset(IHyperVMachine machine)
+        {
+            _provider.Reset(machine);
+        }
 
-		public void Connect()
+        public void Start(IHyperVMachine machine)
+        {
+            _provider.Start(machine);
+        }
+
+        public void Stop(IHyperVMachine machine)
+        {
+            _provider.Stop(machine);
+        }
+
+        public void CreateSnapshot(IHyperVMachine machine)
+        {
+            _provider.CreateSnapshot(machine);
+        }
+
+        public void RemoveSnapshot(IHyperVMachine machine, IHyperVSnapshot snapshot)
+        {
+            _provider.RemoveSnapshot(machine, snapshot);
+        }
+
+        public void ApplySnapshot(IHyperVMachine machine, IHyperVSnapshot snapshot)
+        {
+            _provider.ApplySnapshot(machine, snapshot);
+        }
+
+        public void Connect()
 		{
 			_provider.Connect();
 		}
