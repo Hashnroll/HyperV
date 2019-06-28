@@ -8,50 +8,14 @@ namespace HyperVRemote.Source.Interface
 	/// </summary>
 	public interface IHyperVMachine
 	{
-		/// <summary>
-		/// ВМ как ManagementObject
-		/// </summary>
-		ManagementObject AsRawMachine { get; }
+        ManagementObject RawMachine { get; }
 
-		/// <summary>
-		/// Имя машины
-		/// </summary>
-		string Name { get; }
+        string Name { get; }
 
-		/// <summary>
-		/// Статус
-		/// </summary>
 		HyperVStatus Status { get; }
 
-		/// <summary>
-		/// Запустить ВМ
-		/// </summary>
-		void Start();
+        ManagementScope Scope { get; }
 
-		/// <summary>
-		/// Остановить
-		/// </summary>
-		void Stop();
-
-		/// <summary>
-		/// Сбросить
-		/// </summary>
-		void Reset();
-
-        /// <summary>
-		/// Сделать снепшот
-		/// </summary>
-        void CreateSnapshot();
-
-        void RemoveSnapshot(ManagementObject snapshot);
-
-        void ApplySnapshot(ManagementObject snapshot);
-
-        IEnumerable<IHyperVSnapshot> ListSnapshots();
-
-        /// <summary>
-        /// Восстановить из последнего снапшота
-        /// </summary>
-        void RestoreLastSnapShot();
+        IEnumerable<IHyperVSnapshot> Snapshots { get;  }
 	}
 }
